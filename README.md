@@ -7,14 +7,20 @@ GenePrep is an automated multi-agent system that streamlines preprocessing and a
 
 ## How to use it?
 
-### 1. Data preparation
+### 1. Installation
+Use the following command to install the package.
+```bash
+pip install geneprep
+```
+
+### 2. Data preparation
 Download the input data from our Google Drive [folder](https://drive.google.com/drive/u/0/folders/1A25gqaIpcahle6TLJ81Qnd2VoluJ2NEe). \
 You can verify data integrity with:
 ```bash
 python validator.py --data-dir /path/to/data --validate
 ```
 
-### 2. Set up environment
+### 3. Set up environment
 Create a conda environment with Python 3.10 and install the required packages:
 ```bash
 conda create -n geneprep python=3.10
@@ -22,7 +28,7 @@ conda activate geneprep
 pip install -r requirements.txt
 ```
 
-### 3. Set up API key File(Optional)
+### 4. Set up API key File(Optional)
 Go to the root folder of the package, create a ".env" file(please make sure the file name is exactly ".env" without any other extension) and stores your API key and organization info.\
 The following is an example for OpenAI API key and organization, so please adjust if you are using other platform.\
 Note: Use space to separate, not new line.
@@ -30,7 +36,7 @@ Note: Use space to separate, not new line.
 OPENAI_API_KEY_1=sk-sample-key	OPENAI_ORGANIZATION_1=org-sample-xxx
 ```
 
-### 3. Run the code
+### 5. Run the code
 #### If you have set up the API key file
 Modify `in_data_root` in `main.py` to set input data path on different devices.\
 Run an experiment like this:
