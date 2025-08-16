@@ -1,198 +1,209 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GenePrep – Unified Genomic Data Formatter for Statistical Analysis</title>
 
-  <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="Official project site for GenePrep: Unified Genomic Data Formatter for Statistical
-  Analysis">
-  <meta property="og:title" content="GenePrep"/>
-  <meta property="og:description" content="Explore our paper, code, and results for GenePrep"/>
-  <meta property="og:url" content="https://github.com/SirihaasaNallamothu28/GenoAgent_yue_siri"/>
+  <!-- Fonts & CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bulma.min.css" />
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css" />
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css" />
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+  <link rel="stylesheet" href="static/css/index.css" />
+  <link rel="icon" type="image/x-icon" href="static/images/geneprep.logo.png" />
 
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <!-- OpenGraph / Twitter -->
+  <meta name="description" content="Official project site for GenePrep: Unified Genomic Data Formatter for Statistical Analysis" />
+  <meta property="og:title" content="GenePrep" />
+  <meta property="og:description" content="Explore GenePrep: code, quick start, and results" />
+  <meta property="og:url" content="https://github.com/SirihaasaNallamothu28/GenoAgent_yue_siri" />
   <meta property="og:image" content="static/image/geneprep.logo.png" />
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="GenePrep" />
+  <meta name="twitter:description" content="Unified genomic data formatter – quick start and code" />
+  <meta name="twitter:image" content="static/images/geneprep.logo.png" />
 
-
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-  <title>GenePrep: Unified Genomic Data Formatter for Statistical
-    Analysis</title>
-  <link rel="icon" type="image/x-icon" href="static/images/geneprep.logo.png">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
-
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
-
+  <!-- Scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    /* Fixed navbar offset */
+    .has-navbar-fixed-top { padding-top: 4.25rem; }
+    .navbar.is-blur { backdrop-filter: saturate(180%) blur(8px); background-color: rgba(255,255,255,0.85); }
+    .hero.is-gradient {
+      background: linear-gradient(135deg, #f5f7ff 0%, #eef3ff 45%, #ffffff 100%);
+    }
+    .cta-buttons .button { margin: 0 .5rem .5rem 0; }
+    .feature-icon { font-size: 1.75rem; }
+    .terminal-box { background: #0d1117; color: #e6edf3; border-radius: 10px; padding: 1rem 1.25rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .terminal-box code { color: inherit; }
+    .card { border-radius: 14px; }
+    .section.is-alt { background: #fafbff; }
+    .resource-buttons .button { margin-right: .5rem; margin-bottom: .5rem; }
+    .carousel .subtitle { margin-top: .75rem; }
+    .footer { border-top: 1px solid #eef0f4; }
+  </style>
 </head>
-<body>
+<body class="has-navbar-fixed-top">
+  <!-- Sticky Navbar -->
+  <nav class="navbar is-fixed-top is-blur" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#top">
+        <img src="static/images/geneprep.logo.png" alt="GenePrep logo" style="height: 1.75rem; margin-right:.5rem;"/>
+        <strong>GenePrep</strong>
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNav">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="mainNav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#overview">Overview</a>
+        <a class="navbar-item" href="#quickstart">Quick Start</a>
+        <a class="navbar-item" href="#features">Features</a>
+        <a class="navbar-item" href="#gallery">Gallery</a>
+        <a class="navbar-item" href="#bibtex">BibTeX</a>
+      </div>
+    </div>
+  </nav>
 
-
-  <section class="hero">
+  <!-- Hero / Product header -->
+  <section id="top" class="hero is-medium is-gradient">
     <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">GenePrep: Unified Genomic Data Formatter for Statistical
-              Analysis</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Yue Xu</a><sup>1</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Sirihaasa Nallamothu</a><sup>2</sup>,</span>
-                  <span class="author-block">
-                    <a href="https://scholar.google.com/citations?hl=en&user=1jLWSKAAAAAJ&view_op=list_works" target="_blank">Haoyang Liu</a><sup>2</sup>,</span>
-                    <span class="author-block">
-                      <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Haohan Wang</a><sup>2</sup>
-                  </span>
-                  </div>
+      <div class="container is-max-desktop has-text-centered">
+        <h1 class="title is-1">GenePrep</h1>
+        <h2 class="subtitle is-4">Unified Genomic Data Formatter for Statistical Analysis</h2>
+        <p class="is-size-6">By <a href="#" target="_blank">Yue Xu</a><sup>1</sup>, <a href="#" target="_blank">Sirihaasa Nallamothu</a><sup>2</sup>, <a href="https://scholar.google.com/citations?hl=en&user=1jLWSKAAAAAJ&view_op=list_works" target="_blank">Haoyang Liu</a><sup>2</sup>, <a href="https://haohanwang.github.io/" target="_blank">Haohan Wang</a><sup>2</sup> — <sup>1</sup>Columbia University, <sup>2</sup>UIUC</p>
+        <div class="cta-buttons" style="margin-top:1rem;">
+          <a href="#quickstart" class="button is-primary is-medium is-rounded"><span class="icon"><i class="fas fa-rocket"></i></span><span>Get Started</span></a>
+          <a href="https://github.com/YueXu-2001/GenePrep" target="_blank" class="button is-link is-light is-medium is-rounded"><span class="icon"><i class="fab fa-github"></i></span><span>View Code</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block"><sup>1</sup>Columbia University, <sup>2</sup>University of Illinois Urbana-Champaign</span>
-                    <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
-                  </div>
+  <!-- Overview (short, product-focused) -->
+  <section id="overview" class="section is-alt">
+    <div class="container is-max-desktop">
+      <div class="content is-medium">
+        <h2 class="title is-3">Overview</h2>
+        <p>
+          GenePrep is an automated multi‑agent tool to streamline preprocessing and analysis of large‑scale gene expression data (GEO, TCGA). Provide a dataset and trait–condition pairs; GenePrep validates data, selects pairs, performs statistical tests, and outputs reproducible logs and CSV results with minimal scripting.
+        </p>
+      </div>
+    </div>
+  </section>
 
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- Arxiv PDF link -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- Supplementary PDF link -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- Github link -->
-                  <span class="link-block">
-                    <a href="https://github.com/SirihaasaNallamothu28/GenoAgent_yue_siri" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- ArXiv abstract Link -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+  <!-- Quick Start (pulled from the existing manual markdown) -->
+  <section id="quickstart" class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Quick Start</h2>
+      <div class="columns is-variable is-6">
+        <div class="column is-7">
+          <div id="markdown-rendered" class="content"></div>
+        </div>
+        <div class="column is-5">
+          <div class="card">
+            <div class="card-content">
+              <p class="title is-5">CLI Preview</p>
+              <div class="terminal-box">
+<pre><code>$ conda create -n agent python=3.10
+$ pip install -r requirements.txt
+$ python main.py --version 1 \
+    --model gemini-2.0-flash-002 --api 1</code></pre>
+              </div>
+              <p class="is-size-7 has-text-grey">Commands shown for illustration; see manual for full options.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            GenePrep is an automated multi-agent system that streamlines preprocessing and analysis of large-scale gene expression data from GEO and TCGA. By simply installing the GenePrep package, users can perform end-to-end workflows including data validation, trait–condition pair selection, statistical testing, and result generation. Given a dataset and trait–condition pairs, GenePrep identifies genes associated with traits while accounting for conditions. Its modular agents enable iterative planning, execution, and debugging with minimal manual scripting. GenePrep reduces preprocessing overhead and improves reproducibility. This work extends on tools to create teams of AI scientists and automate gene expression data analysis, as presented in <a href="https://arxiv.org/abs/2402.12391" target="_blank "style="color: blue;">Toward a Team of AI-made Scientists for Scientific Discovery from Gene Expression Data </a> and <a href="https://arxiv.org/abs/2406.15341" target="_blank" style="color: blue;">GenoTEX: An LLM Agent Benchmark for Automated Gene Expression Data Analysis </a>. </p>
+  <!-- Features as product cards -->
+  <section id="features" class="section is-alt">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Features</h2>
+      <div class="columns">
+        <div class="column">
+          <div class="card">
+            <div class="card-content">
+              <p class="feature-icon"><i class="fas fa-wand-magic-sparkles"></i></p>
+              <p class="title is-5">Automation</p>
+              <p class="content">End‑to‑end workflow: validation, pair selection, tests, and result generation.</p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <div class="card-content">
+              <p class="feature-icon"><i class="fas fa-layer-group"></i></p>
+              <p class="title is-5">Modular Agents</p>
+              <p class="content">Plan, execute, and debug with minimal manual scripting using modular agents.</p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <div class="card-content">
+              <p class="feature-icon"><i class="fas fa-file-csv"></i></p>
+              <p class="title is-5">Reproducibility</p>
+              <p class="content">Terminal‑style logs and CSV outputs for transparent, repeatable results.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- End paper abstract -->
+  </section>
 
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/resource_monitor.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          The terminal will show real-time resource consumption.
-        </h2>
+  <!-- Gallery / Carousel -->
+  <section id="gallery" class="hero is-small">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Gallery</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item">
+            <img src="static/images/resource_monitor.png" alt="Resource monitor" />
+            <h3 class="subtitle has-text-centered">Real‑time resource consumption in terminal.</h3>
+          </div>
+          <div class="item">
+            <img src="static/images/output_folder.png" alt="Output folder" />
+            <h3 class="subtitle has-text-centered">Generated code and CSV files saved to output folder.</h3>
+          </div>
+          <div class="item">
+            <img src="static/images/output_log.png" alt="Agent logs" />
+            <h3 class="subtitle has-text-centered">Inspect agent action and communication logs.</h3>
+          </div>
+          <div class="item">
+            <img src="static/images/result_csv.png" alt="Result CSV" />
+            <h3 class="subtitle has-text-centered">Sample result CSV output.</h3>
+          </div>
+        </div>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/output_folder.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          All the generated codes and CSV files will be saved in output folder.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/output_log.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Users can check the log of agent actions and communications.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/result_csv.png" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Sample result CSV file.
-      </h2>
     </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
+  </section>
 
-<section class="section">
-  <div class="container">
-    <h2 class="title">User Manual</h2>
-    <textarea id="markdown-input" style="display:none;">
-
+  <!-- Manual (Markdown source kept hidden; rendered above) -->
+  <section id="manual" class="section">
+    <div class="container is-max-desktop">
+      
+      <!-- Hidden Markdown source (original content retained) -->
+      <textarea id="markdown-input" style="display:none;">
 
 ### 1. Data preparation
 Download the input data from our Google Drive [folder](https://drive.google.com/drive/u/0/folders/1A25gqaIpcahle6TLJ81Qnd2VoluJ2NEe). \
@@ -241,70 +252,60 @@ If you type a wrong model name, the error message will show you all the model na
 
 For open-source LLMs, you can either run them locally with [Ollama Python](https://github.com/ollama/ollama-python), or use APIs (use the `--use-api` flag).
 </textarea>
+      
+  </section>
 
-<div id="markdown-rendered" class="content"></div>
+  <!-- Resources -->
+  
 
-
-
-
-
-<!-- Paper poster -->
-<!-- <section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/GenePrep.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section> -->
-<!--End paper poster -->
-
-
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
+  <!-- BibTeX -->
+  <section id="bibtex" class="section">
     <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
+      <h2 class="title is-3">BibTeX</h2>
       <pre><code>BibTex Code Here</code></pre>
     </div>
-</section>
-<!--End BibTex citation -->
+  </section>
 
-
+  <!-- Footer -->
   <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              You are free to borrow the source code of this website; we ask that you link back to this page in the footer. <br/>
+              Licensed under MIT.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
-
+  <!-- Scripts -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const input = document.getElementById("markdown-input").value;
-      const html = marked.parse(input);
-      document.getElementById("markdown-rendered").innerHTML = html;
+    // Navbar burger toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+      if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach( el => {
+          el.addEventListener('click', () => {
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+          });
+        });
+      }
+
+      // Render markdown from hidden textarea into Quick Start box
+      const input = document.getElementById('markdown-input');
+      if (input) {
+        const html = marked.parse(input.value);
+        document.getElementById('markdown-rendered').innerHTML = html;
+      }
     });
   </script>
-  
+</body>
+</html>
