@@ -109,6 +109,21 @@
     </div>
   </section>
 
+  <section id="workflow" class="section">
+    <div class="container is-max-desktop">
+      <div class="content is-medium has-text-centered">
+        <h2 class="title is-3">Workflow</h2>
+        <figure class="image">
+          <!-- Adjust the src if your file lives elsewhere -->
+          <img src="static/images/workflow.png" alt="GenePrep workflow" style="max-width:100%; height:auto; border-radius:12px; box-shadow: 0 6px 24px rgba(0,0,0,0.08);" />
+        </figure>
+        <p class="is-size-6 has-text-grey" style="margin-top:.5rem;">
+          End-to-end workflow for GenePrep.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- Quick Start (pulled from the existing manual markdown) -->
   <section id="quickstart" class="section">
     <div class="container is-max-desktop">
@@ -223,9 +238,10 @@ pip install -r requirements.txt
 ### 3. Set up API key File(Optional)
 Go to the folder of the package, create a ".env" file(please make sure the name is exactly ".env") and stores your API key and organization info.\
 The following is an example for OpenAI API key and organization, so please adjust if you are using other platform.\
-Note: Use space to separate, not new line.
+Note: Use newline to separate, no space should be used.
 ```bash
-OPENAI_API_KEY_1=sk-sample-key	OPENAI_ORGANIZATION_1=org-sample-xxx
+OPENAI_API_KEY_1=sk-sample-key
+OPENAI_ORGANIZATION_1=org-sample-xxx
 ```
 
 ### 3. Run the code
@@ -262,7 +278,18 @@ For open-source LLMs, you can either run them locally with [Ollama Python](https
   <section id="bibtex" class="section">
     <div class="container is-max-desktop content">
       <h2 class="title is-3">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
+      <pre><code>@inproceedings{nallamothu2025geneprep,
+        title        = {GenePrep: Unified Genomic Data Formatter for Statistical Analysis},
+        author       = {Sirihaasa Nallamothu and Yue Xu and Haohan Wang},
+        booktitle    = {Proceedings of the Machine Learning in Computational Biology Conference (MLCB)},
+        year         = {2025},
+        month        = jun,
+        address      = {Vancouver, Canada},
+        publisher    = {MLCB},
+        url          = {https://www.mlcb.io/2025},
+        abstract     = {GenePrep is an automated multi-agent system that streamlines preprocessing and analysis of large-scale gene expression data from GEO and TCGA. By simply installing the GenePrep package, users can perform end-to-end workflows including data validation, trait–condition pair selection, statistical testing, and result generation. Given a dataset and trait–condition pairs, GenePrep identifies genes associated with traits while accounting for conditions. Its modular agents enable iterative planning, execution, and debugging with minimal manual scripting. GenePrep reduces preprocessing overhead and improves reproducibility. This work extends on tools to create teams of AI scientists and automate gene expression data analysis, as presented in Liu et al. (2024, 2025).}
+      }
+      </code></pre>
     </div>
   </section>
 
